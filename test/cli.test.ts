@@ -4,11 +4,12 @@ import { mkdtemp, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { promisify } from 'node:util'
+import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 
 const exec = promisify(execFile)
-const cli = new URL('../bin/harbor-har.ts', import.meta.url).pathname
-const fixture = new URL('./fixtures/sensitive.har', import.meta.url).pathname
+const cli = fileURLToPath(new URL('../bin/harbor-har.ts', import.meta.url))
+const fixture = fileURLToPath(new URL('./fixtures/sensitive.har', import.meta.url))
 
 async function run(args: string[]) {
   try { return await exec(process.execPath, ['--import', 'tsx', cli, ...args]) }
