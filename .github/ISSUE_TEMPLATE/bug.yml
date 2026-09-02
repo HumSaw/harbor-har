@@ -1,0 +1,25 @@
+name: Bug report
+description: Report reproducible HARbor behavior using synthetic data only
+body:
+  - type: checkboxes
+    attributes:
+      label: Data safety
+      options:
+        - label: I removed real traffic, credentials, and personal data.
+          required: true
+  - type: input
+    attributes:
+      label: HARbor version
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Synthetic reproduction
+      description: Include the smallest synthetic HAR or repository link.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true

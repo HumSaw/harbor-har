@@ -1,0 +1,6 @@
+node_modules/
+dist/
+*.tgz
+*.har
+!test/fixtures/*.har
+.DS_Store

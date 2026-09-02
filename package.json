@@ -1,0 +1,25 @@
+{
+  "name": "harbor-har",
+  "version": "1.0.0",
+  "description": "Audit and sanitize HAR files locally before sharing them.",
+  "type": "module",
+  "bin": { "harbor-har": "dist/bin/harbor-har.js" },
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": ["dist", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --import tsx --test test/*.test.ts",
+    "check": "pnpm typecheck && pnpm test && pnpm build",
+    "prepack": "pnpm check"
+  },
+  "keywords": ["har", "security", "privacy", "redaction", "devtools"],
+  "author": "HumSaw",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/HumSaw/harbor-har.git" },
+  "engines": { "node": ">=20" },
+  "packageManager": "pnpm@10.34.3",
+  "dependencies": { "commander": "^15.0.0" },
+  "devDependencies": { "@types/node": "^24.13.3", "tsx": "^4.23.13", "typescript": "5.7.3" }
+}
